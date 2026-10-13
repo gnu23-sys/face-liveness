@@ -60,6 +60,39 @@ h1 {
   font-size: 0.9rem;
 }
 
+/* Barra de progresso dos desafios (uma "bolinha" por desafio) */
+.progress {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 14px 0 0;
+  min-height: 12px;
+}
+.progress .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3a3f4b;
+  transition: background 0.2s;
+}
+.progress .dot.done { background: var(--green); }
+.progress .dot.active { background: var(--yellow); }
+
+/* Barra de tempo do desafio atual */
+.timebar-wrap {
+  height: 6px;
+  background: #2a2e37;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.timebar {
+  height: 100%;
+  width: 0%;
+  background: var(--yellow);
+  transition: width 0.1s linear;
+}
+
 #hud {
   display: flex;
   justify-content: space-around;
@@ -103,3 +136,14 @@ button {
 }
 button:disabled { opacity: 0.4; }
 button:active { transform: scale(0.98); }
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.toggle input { width: 18px; height: 18px; }

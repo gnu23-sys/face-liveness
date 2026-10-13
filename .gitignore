@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 face_landmarker.task
+
+# assets offline do MediaPipe (baixados por web/fetch_vendor.py)
+web/vendor/

@@ -16,11 +16,18 @@
       <div id="status" class="status">Toque em "Iniciar" para ligar a camera</div>
     </div>
 
+    <!-- Barra de progresso dos desafios -->
+    <div id="progress" class="progress"></div>
+
     <div id="hud">
       <div class="row"><span>Rosto:</span> <b id="face">-</b></div>
       <div class="row"><span>Piscadas:</span> <b id="blinks">0</b></div>
       <div class="row"><span>Cabeca:</span> <b id="head">-</b></div>
+      <div class="row"><span>Score:</span> <b id="score">-</b></div>
     </div>
+
+    <!-- Tempo do desafio atual -->
+    <div class="timebar-wrap"><div id="timebar" class="timebar"></div></div>
 
     <div id="prompt" class="prompt">-</div>
 
@@ -28,6 +35,11 @@
       <button id="start">Iniciar</button>
       <button id="restart" disabled>Reiniciar</button>
     </div>
+
+    <label id="meshToggle" class="toggle">
+      <input type="checkbox" id="showMesh" checked />
+      <span>Mostrar malha de pontos</span>
+    </label>
   </div>
 
   <script type="module" src="app.js"></script>

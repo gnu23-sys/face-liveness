@@ -5,10 +5,22 @@ Landmarker roda em **WASM/JavaScript**, usando a camera frontal via
 `getUserMedia`. Nenhuma imagem sai do aparelho e **nao precisa instalar
 Python-mediapipe** — ideal para Termux/Android.
 
+### Recursos
+
+- **Desafios**: piscar os olhos, virar a cabeca (esq/dir), **sorrir** e
+  **aproximar o rosto** da camera. A cada sessao e sorteada uma sequencia.
+- **Score de confianca (0–100)**: combina conclusao dos desafios, rapidez e
+  estabilidade do rosto na tela — em vez de so "passou/falhou".
+- **Malha de pontos**: os ~478 landmarks desenhados sobre o rosto, com um
+  botao para ligar/desligar.
+- **Modo offline**: rode `python fetch_vendor.py` uma vez (com internet) e o
+  app passa a usar o modelo + WASM locais, sem depender da CDN.
+
 ## Como rodar no proprio celular (Termux)
 
 ```bash
 cd face-liveness/web
+python fetch_vendor.py   # opcional: baixa assets p/ rodar offline depois
 python serve.py          # usa so a lib padrao, funciona no Python 3.14
 ```
 
@@ -31,8 +43,9 @@ Toque em **Iniciar**, permita o acesso a camera e siga os desafios na tela
 |--------------|--------------------------------------------------------|
 | `index.html` | estrutura da pagina                                    |
 | `style.css`  | estilo (layout vertical, amigavel pra celular)         |
-| `app.js`     | camera + MediaPipe + piscada + cabeca + desafios       |
+| `app.js`     | camera + MediaPipe + desafios + score + malha          |
 | `serve.py`   | servidor estatico (so lib padrao)                      |
+| `fetch_vendor.py` | baixa modelo + WASM para `vendor/` (modo offline) |
 
 ## Requisitos
 
