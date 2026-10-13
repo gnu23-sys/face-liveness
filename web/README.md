@@ -46,6 +46,22 @@ Toque em **Iniciar**, permita o acesso a camera e siga os desafios na tela
 | `app.js`     | camera + MediaPipe + desafios + score + malha          |
 | `serve.py`   | servidor estatico (so lib padrao)                      |
 | `fetch_vendor.py` | baixa modelo + WASM para `vendor/` (modo offline) |
+| `liveness-core.js` | logica pura (detectores + desafios + score), sem DOM |
+| `tests/`     | testes da logica (runner nativo do Node)               |
+
+## Testes
+
+A logica pura fica isolada em `liveness-core.js` (sem camera/DOM), entao da
+para testar sem navegador, com o runner nativo do Node (>= 18):
+
+```bash
+cd face-liveness/web
+node --test
+```
+
+Cobre: contagem de piscadas com histerese, direcao da cabeca, sorriso,
+aproximacao, sorteio dos desafios, avanco/timeout da sequencia e o score
+de confianca.
 
 ## Requisitos
 
