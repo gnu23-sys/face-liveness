@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Face Liveness MVP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>Face Liveness</h1>
+
+    <div id="stage">
+      <video id="video" playsinline muted></video>
+      <canvas id="canvas"></canvas>
+      <div id="status" class="status">Toque em "Iniciar" para ligar a camera</div>
+    </div>
+
+    <div id="hud">
+      <div class="row"><span>Rosto:</span> <b id="face">-</b></div>
+      <div class="row"><span>Piscadas:</span> <b id="blinks">0</b></div>
+      <div class="row"><span>Cabeca:</span> <b id="head">-</b></div>
+    </div>
+
+    <div id="prompt" class="prompt">-</div>
+
+    <div id="controls">
+      <button id="start">Iniciar</button>
+      <button id="restart" disabled>Reiniciar</button>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
